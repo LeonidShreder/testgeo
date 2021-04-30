@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<strong>list of cities</strong>
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit">search</button>
+</form>
+{% if search_result.success %}
+    <p><em>{{ search_result.message }}</em></p>
+{% else %}
+    {% for i in  search_result %}
+        <p>Country is {{ i.name }}</p>
+        <p>Currency in this city: {{ i.currencies }}</p>
+        <p>Languages in this city: {{ i.languages }}</p>
+    {% endfor %}
+{% endif %}
+
+
+</body>
+</html>
