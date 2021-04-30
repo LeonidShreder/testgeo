@@ -22,5 +22,5 @@ class CitiesForm(forms.ModelForm):
             search_result = requests.get(url).json()
         else:
             search_result['success'] = True
-            search_result['message'] = 'No entry found for "%s"' % name
+            search_result['message'] = 'Invalid city "%s"' % name
         return search_result
